@@ -9,7 +9,7 @@ monthlySalary = annualSalary / 12
 downPaymentRate = 0.25
 totalCost = houseCost * downPaymentRate
 
-# End of each month, add portion of salary and the investment's return to savings account. 
+# Every 6 months, raise monthly salary.
 months = 0
 raiseMonth = 0
 while currentSavings < totalCost:

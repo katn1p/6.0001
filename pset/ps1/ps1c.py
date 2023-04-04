@@ -14,6 +14,7 @@ def main():
     print(f"Steps in bisection search: {steps}")
 
 
+# Calculates the savings after 36 months, function getOptimalSavingsRate() invokes this function to run through bisection search.
 def calcSavingsAfter36Months(monthlySalary, savingsRate, annualReturn, semiAnnualRaise):
     currentSavings = 0
     months = 0
@@ -33,6 +34,7 @@ def calcSavingsAfter36Months(monthlySalary, savingsRate, annualReturn, semiAnnua
     return currentSavings
 
 
+# Get the optimal saving rate for every month.
 def getOptimalSavingsRate(monthlySalary, annualReturn, semiAnnualRaise, totalCost):
     savingsRate = 0.00
     currentSavings = 0
@@ -46,7 +48,7 @@ def getOptimalSavingsRate(monthlySalary, annualReturn, semiAnnualRaise, totalCos
         steps += 1
         print(guess)
         savingsRate = guess / 10000
-        currentSavings = calcSavingsAfter36Months(monthlySalary, savingsRate, annualReturn, semiAnnualRaise)
+        currentSavings = calcSavingsAfter36Months(monthlySalary, savingsRate, annualReturn, semiAnnualRaise) # Calls calcSavingsAfter36Months() with the guess.
 
         if (currentSavings - totalCost) < 0:
             low = guess
