@@ -44,16 +44,17 @@ def getOptimalSavingsRate(monthlySalary, annualReturn, semiAnnualRaise, totalCos
 
     while abs(currentSavings - totalCost) >= epsilon:
         steps += 1
-        savingsRate = guess / 100.0
+        savingsRate = guess / 100
         currentSavings = calcSavingsAfter36Months(monthlySalary, savingsRate, annualReturn, semiAnnualRaise)
 
         if (currentSavings - totalCost) < 0:
             low = guess
-        elif (currentSavings - totalCost) > 0:
-            high = guess
         else:
-            break
+            high = guess
         guess = (low + high) / 2
+        print(currentSavings - totalCost)
+        print(savingsRate)
+        print(low)
 
     return savingsRate, steps
 
