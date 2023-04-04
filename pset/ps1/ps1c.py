@@ -39,22 +39,22 @@ def getOptimalSavingsRate(monthlySalary, annualReturn, semiAnnualRaise, totalCos
     epsilon = 100
     low = 0
     high = 10000
-    guess = (low + high) / 2
+    guess = (low + high) // 2
     steps = 0
 
     while abs(currentSavings - totalCost) >= epsilon:
         steps += 1
-        savingsRate = guess / 100
+        print(guess)
+        savingsRate = guess / 10000
         currentSavings = calcSavingsAfter36Months(monthlySalary, savingsRate, annualReturn, semiAnnualRaise)
 
         if (currentSavings - totalCost) < 0:
             low = guess
         else:
             high = guess
-        guess = (low + high) / 2
-        print(currentSavings - totalCost)
+        guess = (low + high) // 2
         print(savingsRate)
-        print(low)
+        print(f"{low}, {high}")
 
     return savingsRate, steps
 
